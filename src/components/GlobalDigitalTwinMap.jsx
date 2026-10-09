@@ -214,7 +214,7 @@ export default function GlobalDigitalTwinMap({
         vessels.forEach(vessel => {
           // Calculate interpolated position
           let activeRouteId = vessel.routeId;
-          if (vessel.id === 'v-everapex' && scenario.effects.activeReroute) {
+          if ((vessel.id === 'v-evergiven' || vessel.id === 'v-everapex') && scenario.effects.activeReroute) {
             activeRouteId = 'r-cape-contingency';
           }
 

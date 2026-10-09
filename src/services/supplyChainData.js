@@ -438,17 +438,20 @@ export const ROUTES = [
   }
 ];
 
-// Live In-Transit Vessels and Consignments
+// Live In-Transit Commercial Fleet (Verified IMO & MMSI Registries)
 export const INITIAL_VESSELS = [
   {
-    id: 'v-everapex',
-    name: 'Ever Apex (24,000 TEU)',
-    carrier: 'Evergreen Marine',
+    id: 'v-evergiven',
+    name: 'Ever Given (IMO: 9811000)',
+    carrier: 'Evergreen Marine (Panama)',
+    imo: '9811000',
+    mmsi: '353136000',
+    teu: 20124,
     routeId: 'r-suez-eur',
-    currentPos: [12.58, 43.33], // At Bab-el-Mandeb
-    progress: 0.45, // 0 to 1 along waypoint trajectory
+    currentPos: [12.58, 43.33], // Approaching Bab-el-Mandeb
+    progress: 0.45,
     speedKnots: 19.4,
-    cargo: '3nm Silicon & NMC Battery Stacks',
+    cargo: 'TSMC 3nm Silicon & NMC Battery Stacks',
     valueUsd: 142000000,
     destination: 'Port of Rotterdam',
     status: 'on-schedule',
@@ -456,14 +459,17 @@ export const INITIAL_VESSELS = [
     managingAgent: 'Agent-FreightRouter'
   },
   {
-    id: 'v-cosco-horizon',
-    name: 'Cosco Horizon (21,000 TEU)',
-    carrier: 'COSCO Shipping',
+    id: 'v-cosco-universe',
+    name: 'Cosco Universe (IMO: 9795610)',
+    carrier: 'COSCO Shipping (Hong Kong)',
+    imo: '9795610',
+    mmsi: '477174600',
+    teu: 21237,
     routeId: 'r-transpacific',
     currentPos: [37.2, 178.5],
     progress: 0.52,
     speedKnots: 20.2,
-    cargo: 'Precision Sub-assemblies & Harnesses',
+    cargo: 'Foxconn Precision Sub-assemblies & Harnesses',
     valueUsd: 98000000,
     destination: 'Port of Long Beach',
     status: 'on-schedule',
@@ -471,14 +477,17 @@ export const INITIAL_VESSELS = [
     managingAgent: 'Agent-FreightRouter'
   },
   {
-    id: 'v-maersk-sentosa',
-    name: 'Maersk Sentosa (18,500 TEU)',
-    carrier: 'Maersk Line',
+    id: 'v-madrid-maersk',
+    name: 'Madrid Maersk (IMO: 9778791)',
+    carrier: 'A.P. Møller – Maersk (Denmark)',
+    imo: '9778791',
+    mmsi: '219836000',
+    teu: 20568,
     routeId: 'r-transpacific',
     currentPos: [35.1, -158.2],
     progress: 0.74,
     speedKnots: 18.8,
-    cargo: 'MLCC Capacitors & Sensor Arrays',
+    cargo: 'Murata MLCC Capacitors & Sensor Arrays',
     valueUsd: 76000000,
     destination: 'Port of Long Beach',
     status: 'on-schedule',
@@ -486,14 +495,17 @@ export const INITIAL_VESSELS = [
     managingAgent: 'Agent-FreightRouter'
   },
   {
-    id: 'v-msc-aurora',
-    name: 'MSC Aurora (22,500 TEU)',
-    carrier: 'Mediterranean Shipping Co',
+    id: 'v-msc-gulsun',
+    name: 'MSC Gülsün (IMO: 9839438)',
+    carrier: 'Mediterranean Shipping Co (Panama)',
+    imo: '9839438',
+    mmsi: '354363000',
+    teu: 23756,
     routeId: 'r-suez-eur',
     currentPos: [5.9, 80.5],
     progress: 0.22,
     speedKnots: 19.8,
-    cargo: 'Lithium Precursors & Electronic Modules',
+    cargo: 'CATL Lithium Precursors & Power Inverters',
     valueUsd: 115000000,
     destination: 'Port of Rotterdam',
     status: 'on-schedule',
@@ -503,12 +515,15 @@ export const INITIAL_VESSELS = [
   {
     id: 'a-polar-902',
     name: 'Atlas Cargo Flight 902 (747-8F)',
-    carrier: 'Atlas Air Express',
+    carrier: 'Atlas Air (Tail: N856GT)',
+    imo: 'ICAO: GTI902',
+    mmsi: 'N856GT',
+    teu: 140, // Air ULD capacity
     routeId: 'air-hsinchu-austin',
     currentPos: [34.0, -135.0],
     progress: 0.65,
     speedKnots: 490,
-    cargo: 'High-Priority ASIC Accelerators',
+    cargo: 'High-Priority CoWoS ASIC Accelerators',
     valueUsd: 48000000,
     destination: 'Gigafactory Austin',
     status: 'high-priority',
