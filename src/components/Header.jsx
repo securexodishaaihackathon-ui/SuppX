@@ -1,7 +1,7 @@
 import React from 'react';
 import { 
   Play, Pause, FastForward, RotateCcw, Volume2, VolumeX, 
-  Sparkles, ShieldCheck, Activity, Globe, Bot, Dna, GitGraph, FileText 
+  Sparkles, ShieldCheck, Activity, Globe, Bot, Dna, GitGraph, FileText, Workflow
 } from 'lucide-react';
 import { SCENARIOS } from '../services/supplyChainData';
 import { playClick, toggleSound, isSoundEnabled } from '../services/soundEffects';
@@ -28,6 +28,7 @@ export default function Header({
   };
 
   const navItems = [
+    { id: 'workflow', label: 'Disruption Response', icon: Workflow },
     { id: 'map', label: 'Digital Twin Map', icon: Globe },
     { id: 'agents', label: 'Multi-Agent Network', icon: Bot },
     { id: 'evolution', label: 'Self-Evolution & MAP-Elites', icon: Dna },
@@ -186,7 +187,7 @@ export default function Header({
       </div>
 
       {/* Navigation Tabs Bar */}
-      <div style={{ display: 'flex', gap: '6px', borderTop: '1px solid var(--border-subtle)', paddingTop: '10px' }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', borderTop: '1px solid var(--border-subtle)', paddingTop: '10px' }}>
         {navItems.map((item) => {
           const Icon = item.icon;
           const isActive = activeTab === item.id;

@@ -8,12 +8,14 @@ import SelfEvolutionView from './components/SelfEvolutionView';
 import CausalWorldModelView from './components/CausalWorldModelView';
 import SafetyExecutionLedger from './components/SafetyExecutionLedger';
 import NodeDetailModal from './components/NodeDetailModal';
+import DisruptionResponseView from './components/DisruptionResponseView';
 
 import { SCENARIOS, INITIAL_VESSELS, NODES } from './services/supplyChainData';
 import { generateAgentMessage } from './services/simulationEngine';
 import { INITIAL_LEDGER_TRANSACTIONS } from './services/evolutionEngine';
 import { fetchFullRealWorldTelemetry } from './services/realDataService';
 import { playAlert, playSuccess } from './services/soundEffects';
+import './App.css';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('map');
@@ -266,7 +268,9 @@ export default function App() {
         />
 
         {/* Tab View Switcher */}
-        {activeTab === 'map' && (
+          {activeTab === 'workflow' && <DisruptionResponseView />}
+
+          {activeTab === 'map' && (
           <GlobalDigitalTwinMap
             scenario={selectedScenario}
             vessels={vessels}
